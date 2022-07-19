@@ -1,0 +1,41 @@
+<app-parent></app-parent>
+
+
+
+<table border="1">
+    <tr>
+       <th>Emp code</th>
+       <th>Emp Name</th>
+       <th>Salary</th>
+    </tr>
+    <tr *ngFor="let emp of employee">
+        <td>{{emp.code}}</td>
+        <td>{{emp.name | uppercase}}</td>
+        <td>{{emp.salary | currency:'USD':true:'1.3-3'}}</td>
+    </tr>
+</table>
+
+<br><br><br>
+
+<div class="row">
+    {{dob}}<br>
+    Medium:{{dob | date:"medium" | lowercase}}<br/>
+    Specific formate:{{dob | date:"dd/mm/yyyy"}}<br>
+    Medium time : {{dob|date:"mediumTime"}}<br>
+    Fulldate:{{dob|date:"fullDate" | uppercase}}
+    <br><br><br>
+    Salary:{{salary | currency:'USD':true:'1.3-3'}}
+
+</div>
+
+
+<br><br><br>
+
+   <h1 class="text-center">Custom Pipe</h1>
+   <table border="2">
+      <tr *ngFor="let em of employees">
+        <td>{{em.codeData}}</td>
+        <td>{{em.nameData |mypipe:em.gender}}</td>
+        <td>{{em.gender}}</td>
+      </tr>
+   </table>
